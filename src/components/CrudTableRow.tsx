@@ -1,11 +1,12 @@
-export const CrudTableRow = ({el}) => {
+export const CrudTableRow = ({el, setDataToEdit, deleteData}) => {
+    const {name, constellation, id} = el
     return (
         <tr>
-            <td>{el.name}</td>
-            <td>{el.constellation}</td>
+            <td>{name}</td>
+            <td>{constellation}</td>
             <td>
-                <button>Editar</button>
-                <button>Eliminar</button></td>
+                <button onClick={() => setDataToEdit(el)}>Editar</button>
+                <button onClick={() => deleteData(id)}>Eliminar</button></td>
         </tr>
     )
 }

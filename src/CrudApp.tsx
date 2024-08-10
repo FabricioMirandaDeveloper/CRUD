@@ -37,10 +37,17 @@ export const CrudApp = () => {
         setDb([...db,data])
     }
     const updateData = (data) => {
-
+        const newData = db.map(el => el.id === data.id ? data : el)
+        setDb(newData)
     }
     const deleteData = (id) => {
-
+        const isDelete = window.confirm(`¿Estas seguro de eliminar el registro ${id}?`)
+        if(isDelete) {
+            const newData = db.filter(el => el.id != id) 
+            setDb(newData)
+        }else {
+            return
+        }
     }
     return(
         <div>
